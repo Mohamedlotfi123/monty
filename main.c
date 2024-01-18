@@ -14,17 +14,17 @@ int main(int argc, char *argv[])
 	int i, line_no = 0, x;
 	(void)argc;
 
-	/*if (argc != 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
-	}*/
+	}
 	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	/*if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
-	}
+	}*/
 	while ((y = fgets(line, sizeof(line), fp)) != NULL)
 	{
 		line_no += 1;
