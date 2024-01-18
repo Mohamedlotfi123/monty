@@ -13,8 +13,13 @@ void command(char **str, unsigned int line_number)
 		{"pall", display},
 		{NULL, NULL}};
 	stack_t *ptr;
-	int i, len = 0, y = 0;
+	char *c = str[1];
+	int i, len = 0, y = 0, x = 0;
 
+	if (*c >= 48 && *c <= 57)
+	{
+		x += 1;
+	}
 	while (str[len])
 	{
 		len += 1;
@@ -33,7 +38,7 @@ void command(char **str, unsigned int line_number)
 	{
 		if ((strcmp(str[0], op_code[i].opcode)) == 0)
 		{
-			if ((i == 0 && len == 1) || (i == 0 && ptr->n == 0))
+			if ((i == 0 && len == 1) || (i == 0 && x == 0))
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
