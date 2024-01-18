@@ -12,12 +12,13 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	char line[1024], *token, *y, *arr[1024];
 	int i, line_no = 0, x;
+	(void)argc;
 
-	if (argc != 2)
+	/*if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (1);
-	}
+		exit(EXIT_FAILURE);
+	}*/
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 	{
