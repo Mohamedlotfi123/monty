@@ -6,6 +6,7 @@
  *
  * Return: void
  */
+void command(char **str, unsigned int line_number);
 void command(char **str, unsigned int line_number)
 {
 	instruction_t op_code[3] = {
