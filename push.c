@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * push - add element to the stack
- * @stack : pointer to pointer to the node
+ * @head : pointer to the top of the stack
  * @line_number : number of command line
  *
  * Return: Void

@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * display - print the element of the stack
- * @stack : pointer to the stack
+ * @head : pointer to the top of a stack
  * @line_number : number of line
  *
  * Return: Void;
