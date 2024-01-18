@@ -6,14 +6,13 @@
  *
  * Return: Void;
  */
-void display(stack_t **stack, unsigned int line_number)
+void display(stack_t **head, unsigned int line_number)
 {
 	stack_t *p;
-	(void)stack;
 	(void)line_number;
 
-	p = head;
-	if (head != NULL)
+	p = *head;
+	if (p != NULL)
 	{
 		while (p != NULL)
 		{

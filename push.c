@@ -6,21 +6,38 @@
  *
  * Return: Void
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number)
 {
-	(void)line_number;
+	stack_t *ptr;
+	int x;
 
-	if (head == NULL)
+	if (*arg >= 48 && *arg <= 57)
 	{
-		(*stack)->next = NULL;
-		(*stack)->prev = NULL;
-		head = *stack;
+		x = atoi(arg);
 	}
 	else
 	{
-		(*stack)->next = head;
-		(*stack)->prev = NULL;
-		head->prev = *stack;
-		head = *stack;
+		fprintf(stderr, "L%d: usage: push integer", line_number);
+		exit(EXIT_FAILURE);
+	}
+	ptr = malloc(sizeof(stack_t));
+	if (ptr == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	ptr->n = x;
+	if (*head == NULL)
+	{
+		ptr->next = NULL;
+		ptr->prev = NULL;
+		*head = ptr;
+	}
+	else
+	{
+		ptr->next = *head;
+		ptr->prev = NULL;
+		(*head)->prev = ptr;
+		*head = ptr;
 	}
 }

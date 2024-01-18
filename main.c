@@ -1,5 +1,6 @@
 #include "monty.h"
 stack_t *head = NULL;
+char *arg;
 /**
  * main - Interpreter for Monty Byte codes files
  * @argc : number of arguments
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
 			token = strtok(NULL, " $\n");
 			x++;
 		}
+		arg = arr[1];
 		command(arr, line_no);
 	}
 	fclose(fp);
