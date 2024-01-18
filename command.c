@@ -22,7 +22,7 @@ void command(char **str, unsigned int line_number)
 	ptr = malloc(sizeof(stack_t));
 	if (ptr == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	if (str[1] != NULL)
@@ -35,8 +35,8 @@ void command(char **str, unsigned int line_number)
 		{
 			if (i == 0 && len == 1)
 			{
-				fprintf(stderr, "L<%d>: usage: push integer", line_number);
-				break;
+				fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
 			}
 			op_code[i].f(&ptr, line_number);
 		}
