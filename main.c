@@ -31,6 +31,10 @@ int main(int argc, char *argv[])
 		i = 0;
 		x = 0;
 		token = strtok(y, " $\n");
+		if (token == NULL)
+		{
+			continue;
+		}
 		while (x < 2 && token != NULL)
 		{
 			arr[i] = token;

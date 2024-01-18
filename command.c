@@ -13,7 +13,7 @@ void command(char **str, unsigned int line_number)
 		{"pall", display},
 		{NULL, NULL}};
 	stack_t *ptr;
-	int i, len = 0;
+	int i, len = 0, y = 0;
 
 	while (str[len])
 	{
@@ -35,10 +35,16 @@ void command(char **str, unsigned int line_number)
 		{
 			if ((i == 0 && len == 1) || (i == 0 && ptr->n == 0))
 			{
-				fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 			op_code[i].f(&ptr, line_number);
+			y += 1;
 		}
+	}
+	if (y == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, str[0]);
+		exit(EXIT_FAILURE);
 	}
 }
