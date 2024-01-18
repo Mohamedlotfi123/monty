@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char line[1024], *token, *y, *arr[1024];
-	int i, line_no = 0;
+	int i, line_no = 0, x;
 
 	if (argc != 2)
 	{
@@ -28,12 +28,14 @@ int main(int argc, char *argv[])
 	{
 		line_no += 1;
 		i = 0;
+		x = 0;
 		token = strtok(y, " $\n");
-		while (token != NULL)
+		while (x < 2 && token != NULL)
 		{
 			arr[i] = token;
 			i++;
 			token = strtok(NULL, " $\n");
+			x++;
 		}
 		command(arr, line_no);
 	}

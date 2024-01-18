@@ -13,11 +13,7 @@ void display(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	p = head;
-	if (head == NULL)
-	{
-		fprintf(stderr, "Underflow: The stack is empty");
-	}
-	else
+	if (head != NULL)
 	{
 		while (p != NULL)
 		{

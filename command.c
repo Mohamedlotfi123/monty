@@ -13,9 +13,12 @@ void command(char **str, unsigned int line_number)
 		{"pall", display},
 		{NULL, NULL}};
 	stack_t *ptr;
-	int i;
-	(void)line_number;
+	int i, len = 0;
 
+	while (str[len])
+	{
+		len += 1;
+	}
 	ptr = malloc(sizeof(stack_t));
 	if (ptr == NULL)
 	{
@@ -30,6 +33,11 @@ void command(char **str, unsigned int line_number)
 	{
 		if ((strcmp(str[0], op_code[i].opcode)) == 0)
 		{
+			if (i == 0 && len == 1)
+			{
+				fprintf(stderr, "L<%d>: usage: push integer", line_number);
+				break;
+			}
 			op_code[i].f(&ptr, line_number);
 		}
 	}
