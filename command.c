@@ -33,7 +33,7 @@ void command(char **str, unsigned int line_number)
 	{
 		if ((strcmp(str[0], op_code[i].opcode)) == 0)
 		{
-			if (i == 0 && len == 1)
+			if ((i == 0 && len == 1) || (i == 0 && ptr->n == 0))
 			{
 				fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
