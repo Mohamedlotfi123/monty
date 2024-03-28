@@ -17,23 +17,27 @@ void command_execution(char *command_arg[], int line_number)
 
 	if (strcmp(command_arg[0], "push") == 0)
 	{
-		arg = atoi(command_arg[1]);
-		if (arg == 0 && (strcmp(command_arg[1], "0") != 0))
+		if (strcmp(command_arg[2], "None") == 0)
 		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
+			arg = atoi(command_arg[1]);
+			if (arg == 0 && (strcmp(command_arg[1], "0") != 0))
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+			ptr = malloc(sizeof(stack_t));
+			if (ptr == NULL)
+			{
+				fprintf(stderr, "Error: malloc failed");
+				exit(EXIT_FAILURE);
+			}
+			ptr->n = arg;
+			push(&ptr, line_number);
 		}
-		ptr = malloc(sizeof(stack_t));
-		if (ptr == NULL)
-		{
-			fprintf(stderr, "Error: malloc failed");
-			exit(EXIT_FAILURE);
-		}
-		ptr->n = arg;
-		push(&ptr, line_number);
 	}
 	else if (strcmp(command_arg[0], opcode_fun[1].opcode) == 0)
 	{
-		opcode_fun[1].f(&top, line_number);
+		if (strcmp(command_arg[1], "None") == 0)
+			opcode_fun[1].f(&top, line_number);
 	}
 }

@@ -13,11 +13,12 @@ stack_t *top = NULL;
 int main(int argc, char *argv[])
 {
 	int i, command_line = 1;
-	char line[100], *del = " \n", *str, *command_arg[2];
+	char line[100], *del = " \n", *str, *command_arg[3];
 	FILE *fp;
 
 	if (argc != 2)
 	{
+
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 	{
 		i = 0;
 		str = strtok(line, del);
-		while (i < 2)
+		while (i < 3)
 		{
 			if (str == NULL)
 				str = "None";
