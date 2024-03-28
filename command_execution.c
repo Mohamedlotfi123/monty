@@ -22,7 +22,7 @@ void command_execution(char *command_arg[], int line_number)
 			arg = atoi(command_arg[1]);
 			if (arg == 0 && (strcmp(command_arg[1], "0") != 0))
 			{
-				fprintf(stderr, "L%d: usage: push integer.\n", line_number);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 			ptr = malloc(sizeof(stack_t));
