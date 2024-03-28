@@ -40,4 +40,12 @@ void command_execution(char *command_arg[], int line_number)
 		if (strcmp(command_arg[1], "None") == 0)
 			opcode_fun[1].f(&top, line_number);
 	}
+	else
+	{
+		if (strcmp(command_arg[0], "None") != 0)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, command_arg[0]);
+			exit(EXIT_FAILURE);
+		}
+	}
 }
