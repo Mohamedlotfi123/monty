@@ -8,11 +8,12 @@
  */
 void command_execution(char *command_arg[], int line_number)
 {
-	int arg = -1;
+	int arg = -1, i, check = 0;
 	stack_t *ptr;
 	instruction_t opcode_fun[] = {
 			{"push", push},
-			{"pall", pall}
+			{"pall", pall},
+			{"pint", pint}
 		};
 
 	if (strcmp(command_arg[0], "push") == 0)
@@ -35,14 +36,20 @@ void command_execution(char *command_arg[], int line_number)
 			push(&ptr, line_number);
 		}
 	}
-	else if (strcmp(command_arg[0], opcode_fun[1].opcode) == 0)
-	{
-		if (strcmp(command_arg[1], "None") == 0)
-			opcode_fun[1].f(&top, line_number);
-	}
 	else
 	{
-		if (strcmp(command_arg[0], "None") != 0)
+		for (i = 1; i < 3; i++)
+		{
+			if (strcmp(command_arg[0], opcode_fun[i].opcode) == 0)
+			{
+				if (strcmp(command_arg[1], "None") == 0)
+				{
+					check += 1;
+					opcode_fun[i].f(&top, line_number);
+				}
+			}
+		}
+		if (strcmp(command_arg[0], "None") != 0 && check == 0)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, command_arg[0]);
 			exit(EXIT_FAILURE);
