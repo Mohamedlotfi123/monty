@@ -13,7 +13,8 @@ void command_execution(char *command_arg[], int line_number)
 	instruction_t opcode_fun[] = {
 			{"push", push},
 			{"pall", pall},
-			{"pint", pint}
+			{"pint", pint},
+			{"pop", pop}
 		};
 
 	if (strcmp(command_arg[0], "push") == 0)
@@ -38,7 +39,7 @@ void command_execution(char *command_arg[], int line_number)
 	}
 	else
 	{
-		for (i = 1; i < 3; i++)
+		for (i = 1; i < 4; i++)
 		{
 			if (strcmp(command_arg[0], opcode_fun[i].opcode) == 0)
 			{
