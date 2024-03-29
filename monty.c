@@ -40,7 +40,8 @@ int main(int argc, char *argv[])
 			str = strtok(NULL, del);
 			i++;
 		}
-		command_execution(command_arg, command_line);
+		if (strcmp(command_arg[0], "nop") != 0)
+			command_execution(command_arg, command_line);
 		command_line++;
 	}
 	fclose(fp);
