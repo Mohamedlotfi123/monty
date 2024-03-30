@@ -1,6 +1,6 @@
 push 1
-push 2
-push 10
-push 3
-sub
-pall
+push 1024
+push -0
+push -1
+push -1024
+push 123a

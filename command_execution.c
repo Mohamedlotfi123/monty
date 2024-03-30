@@ -24,8 +24,8 @@ void command_execution(char *command_arg[], int line_number)
 	{
 		if (strcmp(command_arg[2], "None") == 0)
 		{
-			arg = atoi(command_arg[1]);
-			if (arg == 0 && (strcmp(command_arg[1], "0") != 0))
+			arg = my_atoi(command_arg[1]);
+			if (arg == 1 && strcmp(command_arg[1], "1") != 0)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
