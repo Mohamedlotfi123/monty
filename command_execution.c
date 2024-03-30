@@ -17,7 +17,8 @@ void command_execution(char *command_arg[], int line_number)
 			{"pop", pop},
 			{"swap", swap},
 			{"add", add},
-			{"sub", sub}
+			{"sub", sub},
+			{"div", divide}
 		};
 
 	if (strcmp(command_arg[0], "push") == 0)
@@ -40,7 +41,7 @@ void command_execution(char *command_arg[], int line_number)
 	}
 	else
 	{
-		for (i = 1; i < 7; i++)
+		for (i = 1; i < 8; i++)
 		{
 			if (strcmp(command_arg[0], opcode_fun[i].opcode) == 0)
 			{
