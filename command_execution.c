@@ -21,7 +21,8 @@ void command_execution(char *command_arg[], int line_number)
 			{"div", divide},
 			{"mul", mul},
 			{"mod", mod},
-			{"pchar", pchar}
+			{"pchar", pchar},
+			{"pstr", pstr}
 		};
 
 	if (strcmp(command_arg[0], "push") == 0)
@@ -43,7 +44,7 @@ void command_execution(char *command_arg[], int line_number)
 	}
 	else
 	{
-		for (i = 1; i < 11; i++)
+		for (i = 1; i < 12; i++)
 		{
 			if (strcmp(command_arg[0], opcode_fun[i].opcode) == 0)
 			{
