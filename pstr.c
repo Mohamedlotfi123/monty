@@ -17,20 +17,16 @@ void pstr(stack_t **stack, unsigned int line_number)
 	else
 	{
 		ptr = *stack;
-		value = ptr->n;
 		while (ptr != NULL)
 		{
+			value = ptr->n;
 			if ((value >= 65 && value <= 90) || (value >= 97 && value <= 122))
-			{
 				printf("%c", value);
-				ptr = ptr->next;
-				value = ptr->n;
-			}
 			else
-			{
-				printf("\n");
 				break;
-			}
+			ptr = ptr->next;
 		}
+		printf("\n");
 	}
+	
 }
