@@ -19,12 +19,12 @@ void command_execution(char *command_arg[], int line_number)
 			{"add", add},
 			{"sub", sub},
 			{"div", divide},
-			{"mul", mul}
+			{"mul", mul},
+			{"mod", mod}
 		};
 
 	if (strcmp(command_arg[0], "push") == 0)
 	{
-		/*if (strcmp(command_arg[2], "None") == 0)*/
 		arg = my_atoi(command_arg[1]);
 		if (arg == 1 && strcmp(command_arg[1], "1") != 0)
 		{
@@ -42,11 +42,10 @@ void command_execution(char *command_arg[], int line_number)
 	}
 	else
 	{
-		for (i = 1; i < 9; i++)
+		for (i = 1; i < 10; i++)
 		{
 			if (strcmp(command_arg[0], opcode_fun[i].opcode) == 0)
 			{
-				/*if (strcmp(command_arg[1], "None") == 0)*/
 				check += 1;
 				opcode_fun[i].f(&top, line_number);
 			}
